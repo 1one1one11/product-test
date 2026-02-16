@@ -66,6 +66,31 @@
         <p class="hint">버튼을 눌러 오늘의 메뉴를 골라보세요.</p>
       </article>
     </section>
+
+    <section class="panel inquiry-panel">
+      <h2 class="inquiry-title">제휴 문의</h2>
+      <p class="inquiry-sub">브랜드/매장 제휴는 아래 폼으로 보내주세요.</p>
+      <form class="inquiry-form" action="https://formspree.io/f/mkovbwgd" method="POST">
+        <div class="control">
+          <label for="partner-name">담당자명</label>
+          <input id="partner-name" name="name" type="text" required placeholder="홍길동" />
+        </div>
+        <div class="control">
+          <label for="partner-email">이메일</label>
+          <input id="partner-email" name="email" type="email" required placeholder="contact@brand.com" />
+        </div>
+        <div class="control">
+          <label for="partner-brand">브랜드/업체명</label>
+          <input id="partner-brand" name="brand" type="text" required placeholder="브랜드명을 입력해 주세요" />
+        </div>
+        <div class="control full">
+          <label for="partner-message">문의 내용</label>
+          <textarea id="partner-message" name="message" rows="5" required placeholder="제휴 목적, 예산, 희망 일정 등을 작성해 주세요."></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="[점메추/저메추] 제휴 문의" />
+        <button class="cta inquiry-submit" type="submit">문의 보내기</button>
+      </form>
+    </section>
   </main>
 
   <script defer type="text/javascript" src="/main.js"></script>
