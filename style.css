@@ -109,6 +109,27 @@ body {
   margin-bottom: 16px;
 }
 
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  padding: 8px 12px;
+}
+
+.site-nav a:hover {
+  border-color: var(--key);
+}
+
 .badge {
   display: inline-flex;
   padding: 6px 11px;
@@ -271,6 +292,83 @@ textarea {
   margin-top: 14px;
 }
 
+.info-panel {
+  margin-top: 14px;
+}
+
+.info-panel h2 {
+  margin: 0;
+  font-size: clamp(20px, 3.2vw, 28px);
+  letter-spacing: -0.02em;
+}
+
+.info-panel p {
+  margin: 10px 0 0;
+  color: var(--sub);
+  line-height: 1.65;
+}
+
+.policy-list {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--sub);
+  line-height: 1.65;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.faq-list article {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 12px;
+}
+
+.faq-list h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.faq-list article p {
+  margin-top: 8px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.guide-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 14px;
+}
+
+.guide-card h3 {
+  margin: 0;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+
+.guide-card p {
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.guide-card a {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--key-dark);
+}
+
 .inquiry-title {
   margin: 0;
   font-size: clamp(22px, 4vw, 30px);
@@ -329,6 +427,69 @@ textarea {
   background: var(--surface-tag);
 }
 
+.site-footer {
+  margin-top: 16px;
+  padding: 16px 2px 10px;
+  color: var(--sub);
+  font-size: 14px;
+}
+
+.site-footer p {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-footer p + p {
+  margin-top: 8px;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.comments-policy {
+  margin: 10px 0 14px;
+  color: var(--sub);
+  line-height: 1.6;
+}
+
+.comments-policy a {
+  color: inherit;
+}
+
+.legal-page h1 {
+  margin-top: 0;
+  font-size: clamp(28px, 4.2vw, 40px);
+}
+
+.legal-meta {
+  color: var(--sub);
+  margin: 6px 0 14px;
+}
+
+.legal-section + .legal-section {
+  margin-top: 18px;
+}
+
+.legal-section h2 {
+  margin: 0;
+  font-size: clamp(20px, 3vw, 26px);
+}
+
+.legal-section p,
+.legal-section li {
+  color: var(--sub);
+  line-height: 1.7;
+}
+
+.legal-section ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
 @keyframes rise {
   from {
     opacity: 0;
@@ -360,11 +521,20 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+
   .inquiry-form {
     grid-template-columns: 1fr;
   }
 
   .actions {
     flex-direction: column;
+  }
+
+  .site-footer p {
+    flex-direction: column;
+    gap: 6px;
   }
 }
