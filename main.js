@@ -25,10 +25,12 @@ const state = {
   budget: "any",
   spicy: 3,
   party: "solo",
-  lastResult: null
+  lastResult: null,
+  theme: "light"
 };
 
 const elements = {
+  themeToggle: document.getElementById("theme-toggle"),
   mealButtons: document.querySelectorAll(".switch-btn"),
   mood: document.getElementById("mood"),
   budget: document.getElementById("budget"),
@@ -39,6 +41,24 @@ const elements = {
   rerollBtn: document.getElementById("reroll-btn"),
   resultCard: document.getElementById("result-card")
 };
+
+function applyTheme(theme) {
+  state.theme = theme;
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  elements.themeToggle.textContent = theme === "dark" ? "☀ Light" : "🌙 Dark";
+  elements.themeToggle.setAttribute("aria-label", theme === "dark" ? "화이트 모드 전환" : "다크 모드 전환");
+}
+
+function initTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light" || savedTheme === "dark") {
+    applyTheme(savedTheme);
+    return;
+  }
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(prefersDark ? "dark" : "light");
+}
 
 function pickWeighted(candidates) {
   const scored = candidates.map((item) => {
@@ -146,5 +166,9 @@ elements.partyWrap.addEventListener("click", (event) => {
 
 elements.recommendBtn.addEventListener("click", recommend);
 elements.rerollBtn.addEventListener("click", recommend);
+elements.themeToggle.addEventListener("click", () => {
+  applyTheme(state.theme === "dark" ? "light" : "dark");
+});
 
+initTheme();
 syncSwitchButtons();
