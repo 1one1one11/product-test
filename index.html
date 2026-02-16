@@ -1,14 +1,73 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>오늘 뭐 먹지? 점메추/저메추</title>
+  <meta name="description" content="트렌디한 감성의 점메추/저메추 추천기" />
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <div class="grain"></div>
+  <main class="app">
+    <header class="hero">
+      <p class="badge">TREND PICKER</p>
+      <h1>오늘 뭐 먹지?</h1>
+      <p class="sub">기분에 맞춰 점심/저녁 메뉴를 빠르게 추천해드려요.</p>
+    </header>
+
+    <section class="panel">
+      <div class="switch" role="tablist" aria-label="식사 시간">
+        <button class="switch-btn active" data-meal="lunch" role="tab" aria-selected="true">점메추</button>
+        <button class="switch-btn" data-meal="dinner" role="tab" aria-selected="false">저메추</button>
+      </div>
+
+      <div class="controls">
+        <div class="control">
+          <label for="mood">오늘 느낌</label>
+          <select id="mood">
+            <option value="comfort">편안한 집밥 느낌</option>
+            <option value="trendy">요즘 핫한 느낌</option>
+            <option value="healthy">가볍고 건강한 느낌</option>
+            <option value="boost">자극적인 맛 땡김</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="budget">예산</label>
+          <select id="budget">
+            <option value="any">상관없음</option>
+            <option value="low">1만원 이하</option>
+            <option value="mid">1~2만원</option>
+            <option value="high">2만원 이상</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="spicy">맵기 레벨 <span id="spicy-value">3</span></label>
+          <input id="spicy" type="range" min="1" max="5" value="3" />
+        </div>
+
+        <div class="control chips-wrap">
+          <span>인원</span>
+          <div class="chips" id="party">
+            <button class="chip active" data-party="solo">혼밥</button>
+            <button class="chip" data-party="group">같이 먹기</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="cta" id="recommend-btn">추천 받기</button>
+        <button class="ghost" id="reroll-btn">다시 추천</button>
+      </div>
+
+      <article class="result" id="result-card" aria-live="polite">
+        <p class="hint">버튼을 눌러 오늘의 메뉴를 골라보세요.</p>
+      </article>
+    </section>
+  </main>
+
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
